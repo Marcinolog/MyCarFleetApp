@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Car Information</title>
+</head>
+<style>
+    p {
+        text-align: center;
+        margin: 50px;
+    }
+
+    .form-wrapper {
+        text-align: center;
+    }
+
+    .submitBtn {
+        margin-top: 15px;
+    }
+    #myData {
+        text-align: center;
+        border: 2px solid black;
+        margin: 10px;
+    }
+</style>
+<body>
+<div class="wrapper">
+    <h1 class='title'>Zarządzanie autami służbowymi</h1>
+    <button class='btn car-info'><a href="http://localhost:3000/car-info">Informacje o autach</a></button>
+    <button class='btn delegations'><a href="http://localhost:3000/delegations">Delegacje</a></button>
+    <button class='btn private-borrow'><a href="http://localhost:3000/private-use">Wypożyczenia prywatne</a></button>
+    <button class='btn report-damage'><a href="http://localhost:3000/report-damage">Zgłoś usterkę lub uszkodzenie </a>
+    </button>
+</div>
+
+<p>Tutaj lista aut z bazy danych</p>
+
+<div id="myData"></div>
+<div id="brand"></div>
+
+<div class="form-wrapper">
+    <h2>Dodaj nowe auto</h2>
+    <form action="/car-info/" method="post">
+        <label>
+            :Numer rejestracyjny:<br>
+            <input type="text" name="plateNumber"><br>
+        </label>
+        <label>
+            :Marka:<br>
+            <input type="text" name="brand"><br>
+        </label>
+        <label>
+            :Model:<br>
+            <input type="text" name="model"><br>
+        </label>
+        <label>
+            :Rok produkcji:<br>
+            <input type="number" name="productionYear"><br>
+        </label>
+        <label>
+            :Silnik:<br>
+            <input type="text" name="engine"><br>
+        </label>
+        <button class="submitBtn" type="submit">Zapisz auto w bazie danych</button>
+    </form>
+</div>
+<script src="/script/index.js"></script>
+</body>
+</html>

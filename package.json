@@ -1,0 +1,14 @@
+{
+  "name": "projekt-do-zarzadzania-flota",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npx nodemon app.js"
+  },
+  "dependencies": {
+    "express": "~4.16.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
+    "uuid": "^9.0.0"
+  }
+}
