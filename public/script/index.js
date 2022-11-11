@@ -28,7 +28,7 @@
 //     const cars = await (await fetch("http://localhost:3000/car-info/cars")).json()
 //     // addElement(cars[0]);
 //     appendData(cars)
-// })();
+// })();git push
 
 
 function appendData(data) {
