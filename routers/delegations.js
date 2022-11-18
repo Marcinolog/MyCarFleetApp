@@ -23,6 +23,10 @@ delegationsRouter
         await delegation.insert();
     })
 
+    .get('/all-delegations', async (req, res) => {
+        res.json(await delegationRecord.listAll());
+    })
+
 
 module.exports = {
     delegationsRouter,

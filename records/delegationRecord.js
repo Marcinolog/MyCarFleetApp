@@ -32,6 +32,7 @@ const delegationRecord = class DelegationRecord {
 
 };
 
+
 module.exports = {
     delegationRecord,
 }

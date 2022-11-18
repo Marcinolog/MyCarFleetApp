@@ -23,6 +23,10 @@ privateUseRouter
         await privateUse.insert();
     })
 
+    .get('/', async (req, res) => {
+        res.json(await privateUseRecord.listAll())
+    })
+
 
 module.exports = {
     privateUseRouter,

@@ -24,6 +24,7 @@ carInfoRouter
             productionYear,
         });
 
+
         await car.insert();
     })
 

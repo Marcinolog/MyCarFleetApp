@@ -23,6 +23,7 @@
         .catch(function (err) {
             console.log(err);
         })
+
 })();
 // (async () => {
 //     const cars = await (await fetch("http://localhost:3000/car-info/cars")).json()
@@ -31,7 +32,7 @@
 // })();git push
 
 
-function appendData(data) {
+function appendData(data) {         //TODO stworzyć funkcję która będzie dodawała osobnego diva na każdą rubrykę z bazy danych
     let mainContainer = document.getElementById("myData");
     for (let i = 0; i < data.length; i++) {
         let div = document.createElement("div");

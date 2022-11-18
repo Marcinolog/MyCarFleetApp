@@ -1,11 +1,11 @@
-const {pool} = require ("../utils/db");
-const {v4 : uuid} = require ("uuid");
+const {pool} = require("../utils/db");
+const {v4: uuid} = require("uuid");
 
 const carRecord = class CarRecord {
     constructor(obj) {
         const {id, plateNumber, brand, model, engine, productionYear} = obj;
 
-        this.id =id ?? uuid();
+        this.id = id ?? uuid();
         this.plateNumber = plateNumber;
         this.brand = brand;
         this.model = model;
@@ -28,6 +28,15 @@ const carRecord = class CarRecord {
         const [results] = await pool.execute("SELECT * FROM `cars`");
 
         return results.map(obj => new CarRecord(obj))
+    }
+
+    static async isPlateNumberTaken(plateNumber) {      //TODO zastanowić sie czy taka walidacja jest wgl potrzebna skoro mam ustawiony klucz unikalny na tablicę rejestracyjną w bazie danych..
+        const [results] = await pool.execute("SELECT * FROM `cars` WHERE `plateNumber` = :plateNumber", {
+            plateNumber,
+
+        })
+
+        return results.length > 0;
     }
 
 };
