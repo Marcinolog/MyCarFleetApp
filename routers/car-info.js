@@ -28,9 +28,9 @@ carInfoRouter
         await car.insert();
     })
 
-    .get('/cars', async (req, res) => {
-         res.json(await carRecord.listAll())
-    })
+    // .get('/cars', async (req, res) => {
+    //      res.json(await carRecord.listAll())
+    // })
 
 
 
