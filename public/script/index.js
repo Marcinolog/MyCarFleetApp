@@ -9,7 +9,7 @@
 //     document.body.insertBefore(newTable, currentEl)
 // }
 
-(async () => {
+(async () => {      //TODO zrobić reszte fetchy do pobierania danych z bazy do delegacji itp
     fetch('http://localhost:3000/car-info/cars')
         .then(function (response) {
             return response.json();
@@ -36,7 +36,8 @@ function appendData(data) {         //TODO stworzyć funkcję która będzie dod
     let mainContainer = document.getElementById("myData");
     for (let i = 0; i < data.length; i++) {
         let div = document.createElement("div");
-        div.innerHTML = 'Numer rejestracyjny: ' + data[i].plateNumber;
+        div.innerHTML = '<p>' + 'Numer rejestracyjny: ' + data[i].plateNumber + '</p>' +
+            '<p>' + 'Numer rejestracyjny: ' + data[i].model + '</p>';
 
         mainContainer.appendChild(div);
     }

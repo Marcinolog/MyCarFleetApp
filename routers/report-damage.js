@@ -1,12 +1,13 @@
 const express = require('express');
 const {reportDamageRecord} = require("../records/reportDamageRecord");
+const path = require("path");
 
 
 const reportDamageRouter = express.Router();
 
 reportDamageRouter
     .get('/', (req, res) => {
-        res.redirect('./html/report-damage.html')
+        res.sendFile(path.join(__dirname, '..', 'public', 'html', 'report-damage.html'))
     })
 
     .post('/', async (req, res) => {

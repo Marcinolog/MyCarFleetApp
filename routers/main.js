@@ -1,10 +1,11 @@
 const express = require('express');
+const path = require("path");
 
 const mainRouter = express.Router();
 
 mainRouter
     .get('/', (req, res) => {
-        res.redirect('./html/main.html')
+        res.sendFile(path.join(__dirname, '..', 'public', 'html', 'main.html'))
     });
 
 

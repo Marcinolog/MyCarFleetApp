@@ -1,12 +1,13 @@
 const express = require('express');
 const {privateUseRecord} = require("../records/privateUseRecord");
+const path = require("path");
 
 
 const privateUseRouter = express.Router();
 
 privateUseRouter
     .get('/', (req, res) => {
-        res.redirect('./html/private-use.html')
+        res.sendFile(path.join(__dirname, '..', 'public', 'html', 'private-use.html'))
     })
 
     .post('/', async (req, res) => {

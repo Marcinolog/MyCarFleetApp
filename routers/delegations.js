@@ -1,11 +1,12 @@
 const express = require('express');
 const {delegationRecord} = require("../records/delegationRecord");
+const path = require("path");
 
 const delegationsRouter = express.Router();
 
 delegationsRouter
     .get('/', (req, res) => {
-        res.redirect('./html/delegations.html')
+        res.sendFile(path.join(__dirname, '..', 'public', 'html', 'delegations.html'));
     })
 
     .post('/', async (req, res) => {
