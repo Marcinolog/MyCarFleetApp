@@ -30,14 +30,14 @@ const carRecord = class CarRecord {
         return results.map(obj => new CarRecord(obj))
     }
 
-    static async isPlateNumberTaken(plateNumber) {      //TODO zastanowić sie czy taka walidacja jest wgl potrzebna skoro mam ustawiony klucz unikalny na tablicę rejestracyjną w bazie danych..
-        const [results] = await pool.execute("SELECT * FROM `cars` WHERE `plateNumber` = :plateNumber", {
-            plateNumber,
-
-        })
-
-        return results.length > 0;
-    }
+    // static async isPlateNumberTaken(plateNumber) {      //TODO zastanowić sie czy taka walidacja jest wgl potrzebna skoro mam ustawiony klucz unikalny na tablicę rejestracyjną w bazie danych..
+    //     const [results] = await pool.execute("SELECT * FROM `cars` WHERE `plateNumber` = :plateNumber", {
+    //         plateNumber,
+    //
+    //     })
+    //
+    //     return results.length > 0;
+    // }
 
 };
 
