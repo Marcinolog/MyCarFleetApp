@@ -2,7 +2,6 @@ const express = require('express');
 const {carRecord} = require("../records/carRecord");
 const path = require("path");
 
-
 const carInfoRouter = express.Router();
 
 carInfoRouter
@@ -10,6 +9,10 @@ carInfoRouter
         // res.redirect('./html/car-info.html')
         res.sendFile(path.join(__dirname, '..', 'public', 'html', 'car-info.html'));
 
+    })
+
+    .get('/cars', async (req, res) => {
+        res.json(await carRecord.listAll());
     })
 
     .post('/', async (req, res) => {
@@ -24,16 +27,8 @@ carInfoRouter
             productionYear,
         });
 
-
         await car.insert();
-    })
-
-    .get('/cars', async (req, res) => {
-         res.json(await carRecord.listAll())
-    })
-
-
-
+    });
 
 module.exports = {
     carInfoRouter,

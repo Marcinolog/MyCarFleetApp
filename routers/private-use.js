@@ -10,6 +10,10 @@ privateUseRouter
         res.sendFile(path.join(__dirname, '..', 'public', 'html', 'private-use.html'))
     })
 
+    .get('/', async (req, res) => {
+        res.json(await privateUseRecord.listAll())
+    })
+
     .post('/', async (req, res) => {
         const {surname, carId, dateOfBorrow, dateOfReturn} = req.body
 
@@ -22,12 +26,7 @@ privateUseRouter
         });
 
         await privateUse.insert();
-    })
-
-    .get('/', async (req, res) => {
-        res.json(await privateUseRecord.listAll())
-    })
-
+    });
 
 module.exports = {
     privateUseRouter,

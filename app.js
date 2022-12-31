@@ -11,10 +11,10 @@ const cors = require('cors');
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.urlencoded( {       //pozwala odczytać tradycyjny formularz przesłany z fronta i używa się go tylko wtedy kiedy mamy właśnie taki zwykły formularz ze strony (<form>)
-    extended: true,                         //kiedy używamy urlencode, trzeba ustawić extended:true żeby node sobie odczytywał wszystko taj jak powinien
+app.use(express.urlencoded( {
+    extended: true,
 }));
-app.use(express.json()); // Content-type: application/json
+app.use(express.json());
 app.use(cors());
 
 app.use('/', mainRouter);

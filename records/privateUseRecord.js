@@ -27,8 +27,6 @@ const privateUseRecord = class PrivateUseRecord {
 
         return results.map(obj => new PrivateUseRecord(obj));
     }
-
-
 };
 
 module.exports = {

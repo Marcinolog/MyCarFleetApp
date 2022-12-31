@@ -9,6 +9,10 @@ delegationsRouter
         res.sendFile(path.join(__dirname, '..', 'public', 'html', 'delegations.html'));
     })
 
+    .get('/all-delegations', async (req, res) => {
+        res.json(await delegationRecord.listAll());
+    })
+
     .post('/', async (req, res) => {
         const {serviceLocation, servicers, carId, dateOfStart, dateOfEnd} = req.body
 
@@ -22,12 +26,7 @@ delegationsRouter
         });
 
         await delegation.insert();
-    })
-
-    .get('/all-delegations', async (req, res) => {
-        res.json(await delegationRecord.listAll());
-    })
-
+    });
 
 module.exports = {
     delegationsRouter,

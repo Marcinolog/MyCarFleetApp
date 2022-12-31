@@ -32,8 +32,10 @@ a {
     text-decoration: none;
 }
 
-#myData div {
+#carsList {
     display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 

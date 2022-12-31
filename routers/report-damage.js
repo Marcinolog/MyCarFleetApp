@@ -10,6 +10,10 @@ reportDamageRouter
         res.sendFile(path.join(__dirname, '..', 'public', 'html', 'report-damage.html'))
     })
 
+    .get('/damages', async (req, res) => {
+        res.json(await reportDamageRecord.listAll())
+    })
+
     .post('/', async (req, res) => {
         const {damageDescription, dateOfIncident, placeOfIncident, driverSurname, carId} = req.body
 
@@ -23,14 +27,7 @@ reportDamageRouter
         });
 
         await reportDamage.insert();
-    })
-
-    .get('/damages', async (req, res) => {
-        res.json(await reportDamageRecord.listAll())
-    })
-
-
-
+    });
 
 module.exports = {
     reportDamageRouter,
