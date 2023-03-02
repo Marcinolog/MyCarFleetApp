@@ -5,17 +5,11 @@ const path = require("path");
 const carInfoRouter = express.Router();
 
 carInfoRouter
-    .get('/', async (req, res) => {
-        // res.redirect('./html/car-info.html')
-        res.sendFile(path.join(__dirname, '..', 'public', 'html', 'car-info.html'));
-
-    })
-
-    .get('/cars', async (req, res) => {
+    .get('/all-cars', async (req, res) => {
         res.json(await carRecord.listAll());
     })
 
-    .post('/', async (req, res) => {
+    .post('/add-car', async (req, res) => {
         const {plateNumber, brand, model, engine, productionYear} = req.body
 
         const car = new carRecord({

@@ -6,21 +6,17 @@ const path = require("path");
 const privateUseRouter = express.Router();
 
 privateUseRouter
-    .get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, '..', 'public', 'html', 'private-use.html'))
-    })
-
-    .get('/', async (req, res) => {
+    .get('/all-private-use', async (req, res) => {
         res.json(await privateUseRecord.listAll())
     })
 
-    .post('/', async (req, res) => {
-        const {surname, carId, dateOfBorrow, dateOfReturn} = req.body
+    .post('/add-private-use', async (req, res) => {
+        const {surname, carPlateNumber, dateOfBorrow, dateOfReturn} = req.body
 
         const privateUse = new privateUseRecord({
             ...req.body,
             surname,
-            carId,
+            carPlateNumber,
             dateOfBorrow,
             dateOfReturn,
         });

@@ -3,20 +3,20 @@ const {v4 : uuid} = require ("uuid");
 
 const privateUseRecord = class PrivateUseRecord {
     constructor(obj) {
-        const {id, surname, carId, dateOfBorrow, dateOfReturn} = obj;
+        const {id, surname, carPlateNumber, dateOfBorrow, dateOfReturn} = obj;
 
         this.id = id ?? uuid();
         this.surname = surname;
-        this.carId = carId;
+        this.carPlateNumber = carPlateNumber;
         this.dateOfBorrow = dateOfBorrow;
         this.dateOfReturn = dateOfReturn;
     }
 
     async insert() {
-        await pool.execute("INSERT INTO `private-use`(`id`, `surname`, `carId`, `dateOfBorrow`, `dateOfReturn`) VALUES (:id, :surname, :carId, :dateOfBorrow, :dateOfReturn)", {
-            id: this.id,
+        await pool.execute("INSERT INTO `private-use`(`id`, `surname`, `carPlateNumber`, `dateOfBorrow`, `dateOfReturn`) VALUES (:id, :surname, :carPlateNumber, :dateOfBorrow, :dateOfReturn)", {
+            id: this.id ?? uuid(),
             surname: this.surname,
-            carId: this.carId,
+            carPlateNumber: this.carPlateNumber,
             dateOfBorrow: this.dateOfBorrow,
             dateOfReturn: this.dateOfReturn
         });

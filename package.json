@@ -1,11 +1,12 @@
 {
   "name": "projekt-do-zarzadzania-flota",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "npx nodemon app.js"
   },
   "dependencies": {
+    "@types/uuid": "^9.0.1",
     "cors": "^2.8.5",
     "express": "~4.16.1",
     "express-ejs-layouts": "^2.5.1",

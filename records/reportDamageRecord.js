@@ -3,24 +3,24 @@ const {v4 : uuid} = require ("uuid");
 
 const reportDamageRecord =  class reportDamageRecord {
     constructor(obj) {
-        const {id, damageDescription, dateOfIncident, placeOfIncident, driverSurname, carId} = obj;
+        const {id, damageDescription, dateOfIncident, placeOfIncident, carPlateNumber, driversSurname} = obj;
 
         this.id = id ?? uuid();
         this.damageDescription = damageDescription;
         this.dateOfIncident = dateOfIncident;
         this.placeOfIncident = placeOfIncident;
-        this.driverSurname = driverSurname;
-        this.carId = carId;
+        this.carPlateNumber = carPlateNumber;
+        this.driversSurname = driversSurname;
     }
 
     async insert() {
-        pool.execute("INSERT INTO `damages`(`id`, `damageDescription`, `dateOfIncident`, `placeOfIncident`, `driverSurname`, `carId` ) VALUES(:id, :damageDescription, :dateOfIncident, :placeOfIncident, :driverSurname, :carId)", {
-            id: this.id,
+        pool.execute("INSERT INTO `damages`(`id`, `damageDescription`, `dateOfIncident`, `placeOfIncident`, `carPlateNumber`, `driversSurname`) VALUES(:id, :damageDescription, :dateOfIncident, :placeOfIncident, :carPlateNumber, :driversSurname)", {
+            id: this.id ?? uuid(),
             damageDescription: this.damageDescription,
             dateOfIncident: this.dateOfIncident,
             placeOfIncident: this.placeOfIncident,
-            driverSurname: this.driverSurname,
-            carId: this.carId,
+            carPlateNumber: this.carPlateNumber,
+            driversSurname: this.driversSurname,
         })
     }
 

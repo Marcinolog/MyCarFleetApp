@@ -1,10 +1,9 @@
 const {pool} = require("../utils/db");
 const {v4: uuid} = require("uuid");
 
-const carRecord = class CarRecord {
+const carRecord = class carRecord {
     constructor(obj) {
         const {id, plateNumber, brand, model, engine, productionYear} = obj;
-
         this.id = id ?? uuid();
         this.plateNumber = plateNumber;
         this.brand = brand;
@@ -22,12 +21,12 @@ const carRecord = class CarRecord {
             engine: this.engine,
             productionYear: this.productionYear
         });
-    }
+    };
 
     static async listAll() {
         const [results] = await pool.execute("SELECT * FROM `cars`");
 
-        return results.map(obj => new CarRecord(obj))
+        return results.map(obj => new carRecord(obj))
     }
 };
 
