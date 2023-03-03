@@ -1,6 +1,8 @@
 import * as express from "express";
 import * as cors from 'cors';
 import 'express-async-errors';
+import rateLimit from 'express-rate-limit'
+
 import {carsRouter} from "./routers/cars";
 import {delegationsRouter} from "./routers/delegations";
 import {privateUseRouter} from "./routers/private-use";
@@ -13,9 +15,13 @@ app.use(express.urlencoded( {
     extended: true,
 }));
 app.use(express.json());
+app.use(rateLimit({
+    windowMs: 5*60*100,
+    max: 100
+}));
 app.use(cors({
     origin: 'http://localhost:3000'
-}))
+}));
 
 app.use('/cars', carsRouter);
 app.use('/delegations', delegationsRouter);

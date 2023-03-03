@@ -1,6 +1,7 @@
 const {pool} = require("../utils/db");
 const {v4: uuid} = require("uuid");
 
+
 export class CarRecord {
     id: string
     plateNumber: string
