@@ -1,18 +1,29 @@
 {
-  "name": "projekt-do-zarzadzania-flota",
-  "version": "0.1.0",
-  "private": true,
+  "name": "MyCarFleetApp",
+  "version": "0.2.0",
+  "description": "",
+  "main": "app.ts",
   "scripts": {
-    "start": "npx nodemon app.js"
+    "start": "ts-node app.ts",
+    "start:dev": "tsnd app.ts"
   },
   "dependencies": {
-    "@types/uuid": "^9.0.1",
     "cors": "^2.8.5",
     "express": "~4.16.1",
+    "express-async-errors": "^3.1.1",
     "express-ejs-layouts": "^2.5.1",
+    "method-override": "^3.0.0",
     "mysql2": "^2.3.3",
-    "nodemon": "^2.0.20",
     "react": "^18.2.0",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.14.5",
+    "@types/uuid": "^9.0.1",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.5"
   }
 }
