@@ -7,6 +7,8 @@ import {carsRouter} from "./routers/cars";
 import {delegationsRouter} from "./routers/delegations";
 import {privateUseRouter} from "./routers/private-use";
 import {reportDamageRouter} from "./routers/report-damage";
+import {WorkerRecord} from "./records/worker.record";
+import {CarRecord} from "./records/car.record";
 
 
 const app = express();
@@ -31,5 +33,12 @@ app.use('/damages', reportDamageRouter);
 
 app.listen(3001, '0.0.0.0')
 console.log('http://localhost:3001/')
+async function displayCars() {
+    const workerRecords = await WorkerRecord.listAll();
+    console.log(workerRecords);
+}
+
+displayCars();
+
 
 
