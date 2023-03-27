@@ -16,6 +16,30 @@ export class ReportDamageRecord {
     constructor(obj: ReportDamageRecord) {
         const {id, damageDescription, dateOfIncident, placeOfIncident, carPlateNumber, driversSurname} = obj;
 
+        if (!damageDescription){
+            throw new Error("Damage description was not entered on form")
+        } else if (damageDescription.length <20 || damageDescription.length >500){
+            throw new Error("Damage description should have 20 to 500 characters")
+        }
+        if (!dateOfIncident){
+            throw new Error("Date of incident was not entered on form")
+        }
+        if (!placeOfIncident){
+            throw new Error("Place of the incident was not entered on form")
+        } else if (placeOfIncident.length <20 || placeOfIncident.length > 200) {
+            throw new Error("Place of the incident should have 20 to 200 characters")
+        }
+        if (!carPlateNumber) {
+            throw new Error("Car plate number was not entered on form")
+        } else if (carPlateNumber.length <5 || carPlateNumber.length >7) {
+            throw new Error("Car plate number should have 5 to 7 characters")
+        }
+        if (!driversSurname) {
+            throw new Error("Surname of person borrowing car was not entered on form")
+        } else if (driversSurname.length <3 || driversSurname.length >20) {
+            throw new Error("Surname of person borrowing car should have 3 to 20 characters")
+        }
+
         this.id = id ?? uuid();
         this.damageDescription = damageDescription;
         this.dateOfIncident = dateOfIncident;
